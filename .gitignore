@@ -69,8 +69,26 @@ yarn-error.log
 # Yarn Integrity file
 .yarn-integrity
 
+node_modules/
+build/
+.cache/
+public/
+
 
 .nvmrc
 .vscode/settings.json
 package-lock.json
 .github/agents
+
+# Node / React
+node_modules/
+build/
+.cache/
+public/
+
+# VS Code / Visual Studio
+.vs/
+*.vsidx
+*.suo
+*.user
+*.db
