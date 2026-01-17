@@ -10,12 +10,11 @@ RUN apt-get update && apt-get install -y \
     g++ \
     libc6-dev \
     libvips-dev \
-    && npm install
+    && npm install --legacy-peer-deps
 
 COPY . .
 RUN npm run build
 
-# Serve with Nginx
 FROM nginx:alpine
 COPY --from=build /app/public /usr/share/nginx/html
 EXPOSE 80
