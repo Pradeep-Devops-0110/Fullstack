@@ -1,8 +1,17 @@
-FROM node:20-alpine AS build
+FROM node:20-bullseye AS build
 
 WORKDIR /app
 COPY package*.json ./
-RUN npm install --legacy-peer-deps
+
+# Install build dependencies for sharp/node-sass
+RUN apt-get update && apt-get install -y \
+    python3 \
+    make \
+    g++ \
+    libc6-dev \
+    libvips-dev \
+    && npm install --legacy-peer-deps
+
 COPY . .
 RUN npm run build
 
